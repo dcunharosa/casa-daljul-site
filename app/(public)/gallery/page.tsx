@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 import { createClient } from '@/lib/supabase/client';
 
@@ -78,12 +79,12 @@ export default function GalleryPage() {
                             className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-sm"
                             onClick={() => setSelectedId(image.id)}
                         >
-                            <Image
+                            <OptimizedImage
                                 src={image.src}
                                 alt={image.alt}
                                 width={800}
                                 height={600}
-                                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                                className="transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <span className="text-white font-serif tracking-widest text-sm uppercase">View</span>
@@ -134,7 +135,7 @@ export default function GalleryPage() {
                             className="relative w-full max-w-5xl aspect-[3/2] md:aspect-[16/9]"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <Image
+                            <OptimizedImage
                                 src={selectedImage.src}
                                 alt={selectedImage.alt}
                                 fill

@@ -87,7 +87,7 @@ export default async function Home() {
       {/* Dynamic Parallax Section */}
       <section className="h-[60vh] bg-stone-900 relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-fixed bg-center opacity-80"
+          className="absolute inset-0 bg-cover bg-scroll md:bg-fixed bg-center opacity-80"
           style={{ backgroundImage: `url('${parallaxUrl}')` }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
