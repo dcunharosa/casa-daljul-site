@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, MapPin, Wind } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { HeroSection } from '@/components/HeroSection';
 
 export default async function Home() {
   const supabase = await createClient();
@@ -24,34 +25,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Dynamic Hero Image */}
-        <div className="absolute inset-0 bg-stone-900 z-0">
-          <Image
-            src={heroUrl}
-            alt="Casa Daljul Hero"
-            fill
-            priority
-            className="object-cover opacity-60"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-
-        <div className="relative z-10 text-center text-white space-y-8 px-4 max-w-4xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-tight animate-fade-in-up">
-            Casa Daljul
-          </h1>
-          <p className="text-lg md:text-2xl font-light tracking-wide max-w-2xl mx-auto opacity-90 animate-fade-in-up delay-200">
-            A sanctuary of silence and luxury on the coast.
-          </p>
-          <div className="pt-8 animate-fade-in-up delay-300">
-            <Button asChild size="lg" className="rounded-full px-8 py-6 text-lg bg-white text-stone-900 hover:bg-stone-100 border-none transition-transform hover:scale-105">
-              <Link href="/availability">Request a Quote</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroSection heroUrl={heroUrl} />
 
       {/* Intro / Story Section */}
       <section className="py-24 px-4 bg-stone-50">
