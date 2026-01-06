@@ -37,7 +37,7 @@ const quoteSchema = z.object({
     phone: z.string().optional(),
     guests: z.number().min(1, 'At least 1 guest').max(10, 'Max 10 guests'),
     specialRequests: z.string().optional(),
-    prefersWhatsapp: z.boolean().default(false),
+    prefersWhatsapp: z.boolean(),
 });
 
 type QuoteFormData = z.infer<typeof quoteSchema>;
@@ -56,7 +56,11 @@ export default function AvailabilityPage() {
     const form = useForm<QuoteFormData>({
         resolver: zodResolver(quoteSchema),
         defaultValues: {
+            fullName: '',
+            email: '',
+            phone: '',
             guests: 2,
+            specialRequests: '',
             prefersWhatsapp: false,
         },
     });
