@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, MapPin, Wind } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -26,9 +27,13 @@ export default async function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Dynamic Hero Image */}
         <div className="absolute inset-0 bg-stone-900 z-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-60"
-            style={{ backgroundImage: `url('${heroUrl}')` }}
+          <Image
+            src={heroUrl}
+            alt="Casa Daljul Hero"
+            fill
+            priority
+            className="object-cover opacity-60"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>
